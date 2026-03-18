@@ -276,7 +276,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: #09203a;
+  background: #ffd1dc;
 }
 
 #header.header-top .social-links, #header.header-top h2 {
@@ -482,7 +482,7 @@ section .container {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: #09203a;
+  background: #ffd1dc;
   transition: ease-in-out 0.3s;
 }
 
@@ -655,7 +655,7 @@ section .container {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  background: #09203a;
+  background: #ffd1dc;
   padding: 40px 40px;
   transition: all ease-in-out 0.3s;
   margin: 10px
@@ -710,7 +710,7 @@ section .container {
 }
 
 .services .icon-box:hover {
-  background: #042e5f;
+  background: #f7d0d3;
   border-color: #c2185b;
 }
 
@@ -894,7 +894,7 @@ section .container {
   color: #444444;
   padding: 20px;
   width: 100%;
-  background: #09203a;
+  background: #ffd1dc;
 }
 
 .contact .info-box i.bx {
