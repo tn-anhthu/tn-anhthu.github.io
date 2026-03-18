@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #fff;
+  color: #ffd8e7;
   position: relative;
   background: transparent;
 }
@@ -33,7 +33,7 @@ body::before {
 }
 
 a {
-  color: #12d640;
+  color: #ffa5c5;
 }
 
 a:hover {
