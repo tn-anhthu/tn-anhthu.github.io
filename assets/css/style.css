@@ -18,7 +18,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #010e1b;
+  background: #f6f6f6;
   background-size: cover;
   left: 0;
   right: 0;
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #dee2e6;
+  color: #302830;
   line-height: 1;
   display: inline-block;
 }
@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: #302830;
   line-height: 1;
   margin-right: 8px;
   border-radius: 50%;
@@ -157,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #fff;
+  color: #302830;
   font-size: 19px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #fff;
+  color: #302830;
 }
 
 .mobile-nav {
