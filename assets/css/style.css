@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #dee2e6;
+  color: #2c3f70;
   line-height: 1;
   display: inline-block;
 }
@@ -276,7 +276,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: #09203a;
+  background: #8089d2;
 }
 
 #header.header-top .social-links, #header.header-top h2 {
@@ -348,7 +348,7 @@ section .container {
   margin: 0 0 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #dee2e6;
+  color: #2c3f70;
   font-family: "Poppins", sans-serif;
 }
 
@@ -357,7 +357,7 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #dee2e6;
+  background: #2c3f70;
   margin: 4px 10px;
 }
 
@@ -482,7 +482,7 @@ section .container {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: #09203a;
+  background: #8089d2;
   transition: ease-in-out 0.3s;
 }
 
@@ -655,7 +655,7 @@ section .container {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  background: #09203a;
+  background: #8089d2;
   padding: 40px 40px;
   transition: all ease-in-out 0.3s;
   margin: 10px
@@ -894,12 +894,12 @@ section .container {
   color: #444444;
   padding: 20px;
   width: 100%;
-  background: #09203a;
+  background: #8089d2;
 }
 
 .contact .info-box i.bx {
   font-size: 24px;
-  color: #dee2e6;
+  color: #2c3f70;
   border-radius: 50%;
   padding: 14px;
   float: left;
