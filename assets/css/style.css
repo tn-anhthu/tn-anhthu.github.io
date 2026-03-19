@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #ffd8e7;
+  color: #2c3f70;
   position: relative;
   background: transparent;
 }
@@ -18,7 +18,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #f6f6f6;
+  background: #e8ebed;
   background-size: cover;
   left: 0;
   right: 0;
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #302830;
+  color: #e8ebed;
   line-height: 1;
   display: inline-block;
 }
@@ -104,8 +104,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  color: #302830;
+  background: #8089d2;
+  color: #e8ebed;
   line-height: 1;
   margin-right: 8px;
   border-radius: 50%;
@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .social-links a:hover {
-  background: #c2185b;
+  background: #a5231c;
 }
 
 @media (max-width: 992px) {
@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #302830;
+  color: #e8ebed;
 }
 
 .mobile-nav {
@@ -276,7 +276,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: #ffd1dc;
+  background: #a5231c;
 }
 
 #header.header-top .social-links, #header.header-top h2 {
