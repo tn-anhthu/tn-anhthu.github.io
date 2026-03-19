@@ -894,12 +894,12 @@ section .container {
   color: #444444;
   padding: 20px;
   width: 100%;
-  background: #8089d2;
+  background: #e8dbcc;
 }
 
 .contact .info-box i.bx {
   font-size: 24px;
-  color: #2c3f70;
+  color: #3c0e18;
   border-radius: 50%;
   padding: 14px;
   float: left;
@@ -908,14 +908,14 @@ section .container {
 
 .contact .info-box h3 {
   font-size: 20px;
-  color: #28a745;
+  color: #5f0c2f;
   font-weight: 700;
   margin: 10px 0 8px 68px;
 }
 
 .contact .info-box p {
   padding: 0;
-  color: #2c3f70;
+  color: #3c0e18;
   line-height: 24px;
   font-size: 14px;
   margin: 0 0 0 68px;
@@ -929,7 +929,7 @@ section .container {
 .contact .info-box .social-links a {
   font-size: 18px;
   display: inline-block;
-  color: #2c3f70;
+  color: #3c0e18;
   line-height: 1;
   margin-right: 12px;
   transition: 0.3s;
