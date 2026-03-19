@@ -655,7 +655,7 @@ section .container {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  background: #8089d2;
+  background: #fff8e7;
   padding: 40px 40px;
   transition: all ease-in-out 0.3s;
   margin: 10px
@@ -710,7 +710,7 @@ section .container {
 }
 
 .services .icon-box:hover {
-  background: #042e5f;
+  background: #e8d4e5;
   border-color: #930500;
 }
 
