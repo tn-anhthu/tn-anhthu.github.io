@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #e8ebed;
+  color: #2c3f70;
   line-height: 1;
   display: inline-block;
 }
@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #e91e8c;
+  color: #a5231c;
   text-decoration: none;
 }
 
@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #e8ebed;
+  color: #a5231c;
 }
 
 .mobile-nav {
@@ -348,7 +348,7 @@ section .container {
   margin: 0 0 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #dee2e6;
+  color: #e8ebed;
   font-family: "Poppins", sans-serif;
 }
 
@@ -357,7 +357,7 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #dee2e6;
+  background: #e8ebed;
   margin: 4px 10px;
 }
 
@@ -368,7 +368,7 @@ section .container {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #997d84;
+  color: #2c3f70;
 }
 
 /*--------------------------------------------------------------
