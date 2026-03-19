@@ -1096,3 +1096,7 @@ section .container {
     transform: translateX(-50%);
   }
 }
+
+.icofont-rounded-right:before {
+  color: #8089d2;  /* đổi thành màu hồng của bạn */
+}
