@@ -104,8 +104,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  color: #2c3f70;
+  background: #8089d2 ;
+  color: #fff8ea;
   line-height: 1;
   margin-right: 8px;
   border-radius: 50%;
@@ -420,7 +420,7 @@ section .container {
   left: 50%;
   transform: translateX(-50%);
   font-size: 24px;
-  background: rgba(255, 255, 255, 0.1);
+  background: ;
   padding: 12px;
   color: #930500;
   border-radius: 50px;
@@ -558,7 +558,7 @@ section .container {
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: ;
   position: relative;
   border-radius: 6px;
   position: relative;
@@ -755,7 +755,7 @@ section .container {
   line-height: 1;
   text-transform: uppercase;
   color: #2c3f70;
-  background: rgba(255, 255, 255, 0.1);
+  background: ;
   margin: 0 3px 10px 3px;
   transition: all 0.3s ease-in-out;
   border-radius: 4px;
