@@ -80,10 +80,65 @@ reference site itself is structured.
   portfolio filter tabs (`#portfolio-flters li`), the "Work in Progress" badge,
   small tooltip/label text.
 
+## Header layout fix
+
+Independent bug fix, bundled into this pass since it touches the same header
+CSS. In the scrolled/sticky state (`#header.header-top`), the brand name
+wraps onto two lines and crowds the nav menu:
+
+- `#header.header-top h1` is `font-size: 36px` — too large for a 90px-tall bar
+  once `Fraunces` (a wider display face) replaces `Poppins`.
+- `#header.header-top .container` has no defined gap between `h1` and
+  `.nav-menu`; `h1`'s `margin-right: auto` pushes the nav to the far edge but
+  provides no minimum spacing, so on medium widths the brand text wraps.
+
+Fix: reduce `#header.header-top h1` to `22px` (`18px` at the existing
+`max-width: 768px` breakpoint, down from `26px`), add `white-space: nowrap`
+and `flex-shrink: 0` so the brand never wraps, and replace the `margin-right:
+auto` push with `justify-content: space-between` plus an explicit `gap: 24px`
+on `#header.header-top .container` so there's always breathing room before
+the first nav item.
+
+## Dark mode
+
+Add a manual light/dark toggle (not OS-only), with the user's choice
+persisted in `localStorage` and `prefers-color-scheme` used only as the
+first-visit default.
+
+### Palette (visually extracted from a Claude Chat dark-mode screenshot)
+
+| Role | Token (dark override) | Hex |
+|---|---|---|
+| Page background | `--bg` | `#1f1e1c` |
+| Card/surface | `--paper` | `#2a2926` |
+| Primary text | `--ink` | `#ede9de` |
+| Secondary text | `--ink-soft` | `#c9c6bd` |
+| Muted text | `--ink-faint` | `#8c8983` |
+| Border/line | `--line` / `--line-strong` | `#3a3936` / `#46453f` |
+| Accent | `--accent` | `#d97757` |
+
+Values are a visual approximation (no live CSS access to claude.ai — blocked
+by Cloudflare), confirmed against the provided screenshot and approved by the
+user. Tokens not listed (`--good*`, `--accent-bright/strong/deep`, heat scale)
+are derived proportionally from the same hue shifts as the light-mode set,
+tuned for contrast against `#1f1e1c` during implementation.
+
+### Mechanism
+
+- Define light-mode tokens in `:root` (as today) and dark-mode overrides in
+  `:root[data-theme="dark"]` (or `.dark-mode` on `<body>` — decided during
+  implementation based on what's simplest with the existing markup).
+- A toggle button (sun/moon icon, styled like the existing circular
+  `.social-links` icons) sits in the header, visible in both the hero state
+  and the scrolled `header-top` state (i.e. NOT nested inside `.social-links`,
+  which is hidden when scrolled).
+- Small inline `<script>` in `<head>` applies the stored/preferred theme
+  before first paint, to avoid a flash of the wrong theme.
+
 ## Out of scope
 
-- No dark mode (reference site and current site are both light-only).
-- No layout/structural changes — this is a color + typography pass only.
+- No layout/structural changes beyond the header fix above — this is
+  otherwise a color + typography pass.
 - No changes to icon *sets* (boxicons/remixicon/icofont) beyond recoloring.
 
 ## Testing
