@@ -841,8 +841,8 @@ section .container {
   position: absolute;
   top: 35px;
   left: 35px;
-  border-top: 3px solid #2c3f70;
-  border-left: 3px solid #2c3f70;
+  border-top: 3px solid var(--on-accent);
+  border-left: 3px solid var(--on-accent);
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
@@ -855,20 +855,21 @@ section .container {
   position: absolute;
   bottom: 35px;
   right: 35px;
-  border-bottom: 3px solid #2c3f70;
-  border-right: 3px solid #2c3f70;
+  border-bottom: 3px solid var(--on-accent);
+  border-right: 3px solid var(--on-accent);
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: #2c3f70;
+  color: var(--on-accent);
   font-weight: 600;
+  font-family: "Fraunces", Georgia, serif;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #2c3f70;
+  color: var(--on-accent);
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -881,7 +882,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #2c3f70;
+  color: var(--on-accent);
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -889,7 +890,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #63eda3;
+  color: var(--accent-bright);
 }
 
 .portfolio .portfolio-wrap:hover::before {
