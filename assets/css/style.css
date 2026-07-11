@@ -86,12 +86,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
   padding: 0;
   line-height: 1;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-family: "Fraunces", Georgia, serif;
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #a5231c;
+  color: var(--accent);
   line-height: 1;
   display: inline-block;
 }
@@ -99,12 +99,12 @@ h1, h2, h3, h4, h5, h6 {
 #header h2 {
   font-size: 24px;
   margin-top: 20px;
-  color: #a5231c;
+  color: var(--ink);
 }
 
 #header h2 span {
-  color: #ffc107;
-  border-bottom: 2px solid #930500;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent-strong);
   padding-bottom: 6px;
 }
 
@@ -123,8 +123,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #8089d2 ;
-  color: #fff8ea;
+  background: var(--good);
+  color: var(--on-accent);
   line-height: 1;
   margin-right: 8px;
   border-radius: 50%;
@@ -133,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .social-links a:hover {
-  background: #930500;
+  background: var(--accent-strong);
 }
 
 @media (max-width: 992px) {
@@ -295,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: #fff8e7;
+  background: var(--bg);
 }
 
 #header.header-top .social-links, #header.header-top h2 {
@@ -303,13 +303,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-top h1 {
-  margin-right: auto;
-  font-size: 36px;
+  font-size: 22px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 #header.header-top .container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 #header.header-top .nav-menu {
@@ -321,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 60px;
   }
   #header.header-top h1 {
-    font-size: 26px;
+    font-size: 18px;
   }
 }
 
