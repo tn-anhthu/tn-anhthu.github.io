@@ -5,6 +5,25 @@
 * License: https://bootstrapmade.com/license/
 */
 
+:root {
+  --bg: #f4f1ea;
+  --paper: #fbfaf6;
+  --ink: #1c1a17;
+  --ink-soft: #56514a;
+  --ink-faint: #928b80;
+  --line: #e2ddd2;
+  --line-strong: #d2ccbe;
+  --accent: #b5482e;
+  --accent-soft: #e9d9d2;
+  --accent-bright: #c9633f;
+  --accent-strong: #9d3e28;
+  --accent-deep: #8f3925;
+  --good: #4f7a4a;
+  --good-bright: #5d8a57;
+  --good-deep: #37562f;
+  --on-accent: #fff8ea;
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
