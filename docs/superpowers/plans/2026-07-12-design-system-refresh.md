@@ -195,8 +195,8 @@ h1, h2, h3, h4, h5, h6 {
 
 - [ ] **Step 2: Verify**
 
-Run: `grep -n "Open Sans\|Raleway" assets/css/style.css`
-Expected: no output (both fonts fully removed from the file — Poppins is still used elsewhere and gets removed in later tasks).
+Run: `sed -n '19,53p' assets/css/style.css | grep -n "Open Sans\|Raleway"`
+Expected: no output within this line range (the General block's own font-family declarations no longer say Open Sans/Raleway). Note: `grep -n "Open Sans\|Raleway" assets/css/style.css` over the *whole file* will still find one hit in `.counts .count-box p` — that's dead CSS excluded from this entire plan per Global Constraints, not a leftover from this task. Poppins is still used elsewhere too and gets removed in later tasks.
 
 - [ ] **Step 3: Commit**
 
