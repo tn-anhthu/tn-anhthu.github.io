@@ -506,7 +506,7 @@ section .container {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: #fff8e7;
+  background: var(--paper);
   transition: ease-in-out 0.3s;
 }
 
@@ -518,16 +518,16 @@ section .container {
 }
 
 .interests .icon-box h3 {
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-size: 16px;
-  color: #2c3f70;
+  color: var(--ink);
 }
 
 .interests .icon-box:hover {
-  background: #c8d4e5;
+  background: var(--accent-soft);
 }
 
 /*--------------------------------------------------------------
