@@ -24,6 +24,25 @@
   --on-accent: #fff8ea;
 }
 
+:root[data-theme="dark"] {
+  --bg: #1f1e1c;
+  --paper: #2a2926;
+  --ink: #ede9de;
+  --ink-soft: #c9c6bd;
+  --ink-faint: #8c8983;
+  --line: #3a3936;
+  --line-strong: #46453f;
+  --accent: #d97757;
+  --accent-soft: #3a2e28;
+  --accent-bright: #e2916f;
+  --accent-strong: #c8663f;
+  --accent-deep: #b85f3f;
+  --good: #6f9a68;
+  --good-bright: #85b17d;
+  --good-deep: #547d4d;
+  --on-accent: #fff8ea;
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
