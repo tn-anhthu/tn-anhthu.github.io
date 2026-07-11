@@ -28,8 +28,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #2c3f70;
+  font-family: "Newsreader", Georgia, serif;
+  color: var(--ink);
   position: relative;
   background: transparent;
 }
@@ -37,7 +37,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #fff8e7;
+  background: var(--bg);
   background-size: cover;
   left: 0;
   right: 0;
@@ -52,16 +52,16 @@ body::before {
 }
 
 a {
-  color: #a5231c;
+  color: var(--accent);
 }
 
 a:hover {
-  color: #a5231c;
+  color: var(--accent);
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Fraunces", Georgia, serif;
 }
 
 /*--------------------------------------------------------------
