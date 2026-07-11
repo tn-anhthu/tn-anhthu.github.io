@@ -20,7 +20,11 @@
     var current = document.documentElement.getAttribute('data-theme');
     var next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {
+      // Ignore: persistence is best-effort; the toggle still works for this page view.
+    }
     applyIcon(next);
   });
 })();

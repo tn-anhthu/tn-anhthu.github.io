@@ -4,7 +4,12 @@
 <head>
   <script>
     (function () {
-      var stored = localStorage.getItem('theme');
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
       var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
     })();
@@ -403,7 +408,7 @@
             <img src="assets/img/project/beverage.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
               <div class="portfolio-links">
-                <span style="color: var(--on-accent); font-style: italic; font-size: 14px;">
+                <span style="color: var(--on-accent); font-style: italic; font-size: 14px; font-family:&quot;JetBrains Mono&quot;,monospace; text-transform:uppercase; letter-spacing:0.04em;">
                   <i class="bx bx-sync bx-spin"></i> Work in Progress...
                 </span>
               </div>
