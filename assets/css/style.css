@@ -365,15 +365,15 @@ section .container {
 }
 
 .section-title h2 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   padding: 0;
   line-height: 1px;
   margin: 0 0 20px 0;
-  letter-spacing: 2px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #2c3f70;
-  font-family: "Poppins", sans-serif;
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
 }
 
 .section-title h2::after {
@@ -381,7 +381,7 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #2c3f70;
+  background: var(--line-strong);
   margin: 4px 10px;
 }
 
@@ -389,19 +389,19 @@ section .container {
   margin: 0;
   margin: -15px 0 15px 0;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  color: #2c3f70;
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--ink);
 }
 
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
 .about-me .content h3 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 26px;
-  color: #930500;
+  color: var(--accent-strong);
 }
 
 .about-me .content ul {
@@ -416,7 +416,7 @@ section .container {
 .about-me .content ul i {
   font-size: 20px;
   padding-right: 2px;
-  color: #930500;
+  color: var(--accent-strong);
 }
 
 .about-me .content p:last-child {
@@ -679,7 +679,7 @@ section .container {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  background: #fff8e7;
+  background: var(--paper);
   padding: 40px 40px;
   transition: all ease-in-out 0.3s;
   margin: 10px
@@ -689,7 +689,7 @@ section .container {
   margin: 0 auto;
   width: 64px;
   height: 64px;
-  background: #930500;
+  background: var(--accent-strong);
   border-radius: 5px;
   transition: all .3s ease-out 0s;
   display: flex;
@@ -700,7 +700,7 @@ section .container {
 }
 
 .services .icon-box .icon i {
-  color: #2c3f70;
+  color: var(--on-accent);
   font-size: 28px;
 }
 
@@ -718,13 +718,13 @@ section .container {
 }
 
 .services .icon-box h4 {
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 15px;
   font-size: 24px;
 }
 
 .services .icon-box h4 a {
-  color: #2c3f70;
+  color: var(--ink);
 }
 
 .services .icon-box p {
@@ -734,24 +734,24 @@ section .container {
 }
 
 .services .icon-box:hover {
-  background: #e8d4e5;
-  border-color: #930500;
+  background: var(--accent-soft);
+  border-color: var(--accent-strong);
 }
 
 .services .icon-box:hover .icon {
-  background: #2c3f70;
+  background: var(--ink);
 }
 
 .services .icon-box:hover .icon i {
-  color: #930500;
+  color: var(--accent-strong);
 }
 
 .services .icon-box:hover .icon::before {
-  background: #35e888;
+  background: var(--accent-soft);
 }
 
 .services .icon-box:hover h4 a, .services .icon-box:hover p {
-  color: #a5231c;
+  color: var(--accent);
 }
 
 /*--------------------------------------------------------------
@@ -774,11 +774,13 @@ section .container {
   cursor: pointer;
   display: inline-block;
   padding: 8px 16px 10px 16px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
   line-height: 1;
   text-transform: uppercase;
-  color: #2c3f70;
+  letter-spacing: 0.04em;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--ink);
   background: ;
   margin: 0 3px 10px 3px;
   transition: all 0.3s ease-in-out;
@@ -786,7 +788,8 @@ section .container {
 }
 
 .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
-  background: #930500;
+  background: var(--accent-strong);
+  color: var(--on-accent);
 }
 
 .portfolio #portfolio-flters li:last-child {
