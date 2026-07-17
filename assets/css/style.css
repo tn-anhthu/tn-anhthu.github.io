@@ -801,6 +801,66 @@ section .container {
   color: var(--accent);
 }
 
+.services .icon-box.text-left {
+  text-align: left;
+}
+
+.services .icon-box.text-left .icon {
+  margin: 0 0 20px 0;
+}
+
+/* Collapsible cert details styling */
+.cert-details {
+  border-top: 1px solid var(--line);
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.cert-details summary {
+  list-style: none; /* Hide default arrow */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 14px;
+  user-select: none;
+  outline: none;
+}
+
+.cert-details summary::-webkit-details-marker {
+  display: none; /* Hide default arrow in Safari */
+}
+
+.cert-details summary::after {
+  content: "+";
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+  color: var(--accent);
+}
+
+.cert-details[open] summary::after {
+  content: "−";
+}
+
+.cert-details .description {
+  margin-top: 12px;
+  animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
