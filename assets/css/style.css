@@ -868,6 +868,15 @@ section .container {
   margin-bottom: 30px;
 }
 
+.portfolio .portfolio-item h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
 .portfolio #portfolio-flters {
   padding: 0;
   margin: 0 auto 15px auto;
@@ -909,6 +918,13 @@ section .container {
   overflow: hidden;
   z-index: 1;
   background: rgba(0, 0, 0, 0.6);
+  aspect-ratio: 16 / 9;
+}
+
+.portfolio .portfolio-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .portfolio .portfolio-wrap::before {
