@@ -1,0 +1,258 @@
+/*--------------------------------------------------------------
+# Project detail pages
+--------------------------------------------------------------*/
+body:has(.project-detail) {
+  background: var(--bg);
+}
+
+.project-topbar {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  background: var(--paper);
+}
+
+.project-topbar-brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.project-topbar-brand:hover {
+  color: var(--accent);
+}
+
+.project-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-back {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.project-back:hover {
+  color: var(--accent);
+}
+
+.project-hero {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.project-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.project-hero h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.project-tagline {
+  font-size: 19px;
+  color: var(--ink-soft);
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.project-tags span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  color: var(--ink-soft);
+}
+
+.project-links {
+  margin-bottom: 10px;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.project-btn:hover {
+  background: var(--accent-strong);
+  color: var(--on-accent);
+}
+
+.project-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--ink-soft);
+}
+
+.project-btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.project-hero-image {
+  margin-bottom: 40px;
+}
+
+.project-hero-image img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.project-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid var(--line);
+  max-width: 780px;
+}
+
+.project-section h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.project-section p {
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.project-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.project-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .project-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-stat-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.project-stat-value {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.project-stat-caption {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+.project-image-placeholder {
+  border: 1px dashed var(--line-strong);
+  border-radius: 6px;
+  padding: 30px;
+  margin: 10px auto 30px;
+  max-width: 780px;
+  background: var(--paper);
+}
+
+.project-image-placeholder p {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.project-footer-nav {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+/* Override the single-page-app section rules (position:absolute; opacity:0)
+   from style.css — this is a normal static page, not the SPA home page. */
+.project-detail,
+.project-detail section {
+  position: static;
+  opacity: 1;
+  top: auto;
+  bottom: auto;
+  overflow: visible;
+  z-index: auto;
+  width: auto;
+}
+
+/* Disable the SPA home page's fixed full-height background pseudo-element —
+   it only covers the first 100vh and was hiding the topbar/hero on this
+   normal-flow static page. */
+body.project-page::before {
+  content: none;
+}
+
+body.project-page {
+  background: var(--bg);
+}
+
+.project-chart {
+  max-width: 780px;
+  margin: 10px auto 30px;
+}
+
+.project-chart img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.project-chart-caption {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 8px;
+  margin-bottom: 0;
+}

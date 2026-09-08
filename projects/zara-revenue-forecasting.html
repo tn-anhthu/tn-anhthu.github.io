@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Zara Revenue Forecasting — Anh Thu Tran</title>
+  <meta content="Case study: predicting new-product revenue for Zara with a Random Forest model — R2 0.975, MAE ~6.4% of average revenue."
+    name="description">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
+</head>
+
+<body class="project-page">
+
+  <header class="project-topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="project-topbar-brand">Anh Thu Tran</a>
+      <div class="project-topbar-actions">
+        <a href="../index.html#portfolio" class="project-back"><i class="bx bx-left-arrow-alt"></i> All Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <p class="project-eyebrow">Projects &middot; Business Analytics</p>
+        <h1>Zara Revenue Forecasting</h1>
+        <p class="project-tagline">Predicting how much revenue a new Zara product will generate before it ever reaches a store, so pricing and promotion calls don't rely on guesswork.</p>
+        <div class="project-tags">
+          <span>Python</span><span>pandas</span><span>scikit-learn</span><span>Random Forest</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/tn-anhthu/zara-sales-project" target="_blank" class="project-btn"><i class="bx bxl-github"></i> View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-hero-image container">
+      <img src="../assets/img/project/zara-pj-cover.jpeg" alt="Zara Revenue Forecasting cover" class="img-fluid">
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Problem</p>
+      <h2>Why this matters</h2>
+      <p>Retailers set price, promotion, and initial stock for a new item before they have a single day of sales data on it. Get that call wrong and the business either over-invests in a product that won't move, or under-stocks one that would have sold well. The goal of this project was to build a model that predicts how much revenue a new item will make, using only the attributes known before launch — so that decision can be made on evidence instead of instinct.</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Approach</p>
+      <h2>How it was built</h2>
+      <p>Dataset: ~20,000 rows &times; 17 columns of Zara fashion products, covering price, sales volume, revenue, promotion status, section, season, material, and product position.</p>
+      <p>Model: a Random Forest regressor predicts sales volume; revenue is then calculated as price &times; predicted volume. Features used: price, promotion, section, season, material, and product position. Data was split 70/25/5 into train/validation/test.</p>
+    </section>
+
+    <section class="project-section project-section-results container">
+      <p class="project-label">Results</p>
+      <h2>What the model achieved</h2>
+      <div class="project-stat-grid">
+        <div class="project-stat-card">
+          <p class="project-stat-value">R&sup2; 0.975</p>
+          <p class="project-stat-caption">Explains 97.5% of the variation in revenue on held-out data</p>
+        </div>
+        <div class="project-stat-card">
+          <p class="project-stat-value">MAE ~$2,674</p>
+          <p class="project-stat-caption">~6.4% of average revenue per item</p>
+        </div>
+        <div class="project-stat-card">
+          <p class="project-stat-value">+38%</p>
+          <p class="project-stat-caption">Median revenue lift from promotion on best-sellers ($33,347 &rarr; $45,916)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Insight</p>
+      <h2>What it means for the business</h2>
+      <p>Predicted revenue tracks true revenue closely across the full price range (see chart below) — the model isn't just accurate on paper, it's accurate on the items that matter most. Correlation analysis on the underlying data shows why: price drives revenue directly (r = 0.83), and promotion drives it mainly by lifting volume (r = 0.89 with volume, r = 0.32 with revenue directly). Section, season, and shelf position barely move the needle (r between 0.01 and 0.09) — so a merchandising team can stop debating store layout and focus on price and promotion instead.</p>
+      <p>The top 10 best-selling products by revenue are 100% women's section, 100% promoted, 60% summer season, averaging $112.77 in price — a concrete profile a buyer can act on before launch, not just a model score. And promotion isn't just a revenue trick: modeling cost at 40% of price, average profit per product is $22,548 without promotion versus $31,330 with it, a 38.9% increase — so the discount is more than paid for by the extra volume.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/zara-true-vs-predicted.png" alt="True vs Predicted Revenue scatter plot, Random Forest model" class="img-fluid">
+      <p class="project-chart-caption">Predicted vs. true revenue on the test set — points hug the diagonal across the full range, including the highest-revenue outliers.</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">What's next</p>
+      <h2>In progress</h2>
+      <p>Building a Looker Studio dashboard on top of this dataset — scorecards, a time series by month/season, and a category/price-tier breakdown — to make these results interactive instead of static. Will link it here once it's published.</p>
+    </section>
+
+    <div class="project-footer-nav container">
+      <a href="../index.html#portfolio" class="project-btn project-btn-ghost"><i class="bx bx-left-arrow-alt"></i> Back to all projects</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

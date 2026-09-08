@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>COVID-19 Chest X-Ray Classification — Anh Thu Tran</title>
+  <meta content="Case study: a VGG16 binary classifier distinguishing COVID-19 from normal chest X-rays, 99% accuracy on a curated Kaggle dataset." name="description">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
+</head>
+
+<body class="project-page">
+
+  <header class="project-topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="project-topbar-brand">Anh Thu Tran</a>
+      <div class="project-topbar-actions">
+        <a href="../index.html#portfolio" class="project-back"><i class="bx bx-left-arrow-alt"></i> All Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <p class="project-eyebrow">Projects &middot; Computer Vision &middot; Medical Imaging (Research)</p>
+        <h1>COVID-19 Chest X-Ray Classification</h1>
+        <p class="project-tagline">A VGG16 binary classifier distinguishing COVID-19 from normal chest X-rays &mdash; a research project, not a clinical diagnostic tool.</p>
+        <div class="project-tags">
+          <span>Python</span>           <span>TensorFlow/Keras</span>           <span>VGG16</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/tn-anhthu/CXR-Covid-Classification" target="_blank" class="project-btn"><i class="bx bxl-github"></i> View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-hero-image container">
+      <img src="../assets/img/project/covid19-cxr.png" alt="COVID-19 Chest X-Ray Classification cover" class="img-fluid">
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Problem</p>
+      <h2>Why this matters</h2>
+      <p>Chest X-rays are cheap and fast to capture compared to a PCR test, which made automated triage from CXR images a widely studied question during COVID-19. This project asks a narrow, well-defined version of that question: can a convolutional network reliably tell a COVID-19 chest X-ray apart from a normal one, on a clean, curated public dataset? It's a research/learning exercise, not a validated clinical tool &mdash; real-world CXR triage needs far more rigorous clinical validation than a single Kaggle dataset provides.</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Method</p>
+      <h2>How it was built</h2>
+      <p>Binary classification (COVID-19 vs. Normal) using a VGG16 convolutional architecture.</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Data</p>
+      <h2>Dataset</h2>
+      <p>Kaggle's "Curated Chest X-Ray Image Dataset for COVID-19": 1,281 COVID-19 images and 3,270 Normal images (4,551 total).</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/covid19-sample-covid.png" alt="Sample COVID-19-positive chest X-rays from the dataset." class="img-fluid">
+      <p class="project-chart-caption">Sample COVID-19-positive chest X-rays from the dataset.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/covid19-sample-normal.png" alt="Sample COVID-19-negative (normal) chest X-rays from the dataset." class="img-fluid">
+      <p class="project-chart-caption">Sample COVID-19-negative (normal) chest X-rays from the dataset.</p>
+    </div>
+
+    <section class="project-section project-section-results container">
+      <p class="project-label">Metrics</p>
+      <h2>Test set performance</h2>
+      <div class="project-stat-grid">
+        <div class="project-stat-card">
+          <p class="project-stat-value">99%</p>
+          <p class="project-stat-caption">Accuracy</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">99% / 98%</p>
+          <p class="project-stat-caption">Precision / Recall</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">99%</p>
+          <p class="project-stat-caption">F1-score</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/covid19-training-curve.png" alt="Training/validation loss and accuracy over 20 epochs." class="img-fluid">
+      <p class="project-chart-caption">Training/validation loss and accuracy over 20 epochs.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/covid19-confusion-matrix.png" alt="Confusion matrix on the test set." class="img-fluid">
+      <p class="project-chart-caption">Confusion matrix on the test set.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/covid19-predictions.png" alt="Sample test-set predictions with the model's confidence score." class="img-fluid">
+      <p class="project-chart-caption">Sample test-set predictions with the model's confidence score.</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Learnings</p>
+      <h2>Reading the number honestly</h2>
+      <p>A 99% accuracy on a clean, curated, class-imbalanced-but-known dataset is a strong result for the exercise it was &mdash; it is not evidence the model would hold up on messier, real-hospital X-rays with different equipment, patient populations, and image quality. The gap between a research benchmark like this and a deployable clinical tool is exactly the kind of distinction worth being explicit about rather than glossing over.</p>
+    </section>
+
+    <div class="project-footer-nav container">
+      <a href="../index.html#portfolio" class="project-btn project-btn-ghost"><i class="bx bx-left-arrow-alt"></i> Back to all projects</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

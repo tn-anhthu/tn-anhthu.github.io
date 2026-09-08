@@ -999,6 +999,20 @@ section .container {
   margin: 0;
 }
 
+.portfolio .portfolio-wrap .portfolio-info p.portfolio-desc {
+  text-transform: none;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 8px 0 0;
+  padding: 0 8px;
+  opacity: 0.92;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .portfolio .portfolio-wrap .portfolio-links {
   text-align: center;
   z-index: 4;
@@ -1250,4 +1264,17 @@ section .container {
 
 .icofont-rounded-right:before {
   color: var(--good);
+}
+
+/* Portfolio card titles are now links to the case-study page — keep them
+   looking like plain titles, with a subtle hover cue instead of default
+   link styling. */
+.portfolio .portfolio-item h4 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio .portfolio-item h4 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }

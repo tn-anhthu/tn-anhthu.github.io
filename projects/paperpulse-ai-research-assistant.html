@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>PaperPulse — AI Research Assistant — Anh Thu Tran</title>
+  <meta content="Case study: an LLM + RAG literature review assistant with citation-fabrication detection and research-gap scoring. Top-3 AI in Action capstone." name="description">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
+</head>
+
+<body class="project-page">
+
+  <header class="project-topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="project-topbar-brand">Anh Thu Tran</a>
+      <div class="project-topbar-actions">
+        <a href="../index.html#portfolio" class="project-back"><i class="bx bx-left-arrow-alt"></i> All Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <p class="project-eyebrow">Projects &middot; AI Product &middot; Capstone (Top 3)</p>
+        <h1>PaperPulse &mdash; AI Research Assistant</h1>
+        <p class="project-tagline">An LLM+RAG assistant that helps researchers find where the literature actually has a gap &mdash; and catches fabricated citations along the way.</p>
+        <div class="project-tags">
+          <span>Python</span>           <span>LLM</span>           <span>RAG</span>           <span>Semantic Scholar API</span>           <span>OpenAlex</span>
+        </div>
+        <div class="project-links">
+          <a href="https://c2-app-069-paperpulse.aohkne.workers.dev/" target="_blank" class="project-btn"><i class="bx bx-link-external"></i> View Live Site</a>           <a href="https://drive.google.com/file/d/1r3Rb1zpoWV_X57G6PQNucYw9WXVMUGaf/view?usp=drive_link" target="_blank" class="project-btn"><i class="bx bx-play-circle"></i> Watch Demo Video</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-hero-image container">
+      <img src="../assets/img/project/paperpulse-poster.png" alt="PaperPulse &mdash; AI Research Assistant cover" class="img-fluid">
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Problem</p>
+      <h2>Why this matters</h2>
+      <p>Researchers and PhD students lose real time to two separate problems: manually scanning papers to find where the literature genuinely has a gap, and then double-checking that an AI-suggested gap or citation isn't hallucinated. PaperPulse (team C2-Team-069, my AI in Action capstone) targets both, built on an LLM + RAG architecture over the Semantic Scholar API and OpenAlex.</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Approach</p>
+      <h2>How it was built</h2>
+      <p>The agent scores every candidate research gap on four dimensions &mdash; GROUNDED, SPECIFIC, NON_TRIVIAL, and METHOD_ACTIONABLE &mdash; using live web search to flag directions the literature has already covered. Every API endpoint used in the pipeline was smoke-tested with Postman (GET/POST requests, health checks) before being wired into the agent.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/paperpulse-live-reasoning.jpeg" alt="Live reasoning trace on the deployed app: search &rarr; embed &amp; cluster &rarr; analyze &amp; verify, with citations checked against the source text." class="img-fluid">
+      <p class="project-chart-caption">Live reasoning trace on the deployed app: search &rarr; embed &amp; cluster &rarr; analyze &amp; verify, with citations checked against the source text.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/paperpulse-gap-pipeline.png" alt="The gap-detection pipeline running end to end: document extraction through contradiction detection, gap verification, counter-evidence check, and report synthesis." class="img-fluid">
+      <p class="project-chart-caption">The gap-detection pipeline running end to end: document extraction through contradiction detection, gap verification, counter-evidence check, and report synthesis.</p>
+    </div>
+
+    <section class="project-section project-section-results container">
+      <p class="project-label">Results</p>
+      <h2>What it achieves</h2>
+      <div class="project-stat-grid">
+        <div class="project-stat-card">
+          <p class="project-stat-value">100%</p>
+          <p class="project-stat-caption">Citation-fabrication catch rate, verified manually across 7 stress-test cases</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">3.68 / 5</p>
+          <p class="project-stat-caption">Research-gap quality score, rated by two independent LLM judges (Claude and Gemini)</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">~5 min</p>
+          <p class="project-stat-caption">Average latency for a full review cycle</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/paperpulse-llmjudge-scores.png" alt="LLM-judge scoring table &mdash; ensemble average 3.68/5 across 9 evaluated gaps, rated independently by Gemini and Claude." class="img-fluid">
+      <p class="project-chart-caption">LLM-judge scoring table &mdash; ensemble average 3.68/5 across 9 evaluated gaps, rated independently by Gemini and Claude.</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Learnings</p>
+      <h2>Where it still falls short</h2>
+      <p>The pipeline reliably surfaces topically relevant papers, but it doesn't always verify that an individual cited source actually supports the specific sub-claim it's attached to &mdash; a gap can look well-grounded on the surface while one supporting citation is weaker than it appears. The identified fix is to add an explicit "check against well-known follow-up work" verification step before a gap is presented as final. Recognizing that limitation was part of the AI in Action program's evaluation, and the project placed Top-3 among capstones.</p>
+    </section>
+
+    <div class="project-footer-nav container">
+      <a href="../index.html#portfolio" class="project-btn project-btn-ghost"><i class="bx bx-left-arrow-alt"></i> Back to all projects</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

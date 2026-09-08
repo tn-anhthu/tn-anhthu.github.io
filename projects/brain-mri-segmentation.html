@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Brain MRI Tumor Segmentation — Anh Thu Tran</title>
+  <meta content="Case study: a fuzzy clustering + GLCM + Naive Bayes pipeline for brain MRI tumor segmentation, published in a peer-reviewed journal." name="description">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
+</head>
+
+<body class="project-page">
+
+  <header class="project-topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="project-topbar-brand">Anh Thu Tran</a>
+      <div class="project-topbar-actions">
+        <a href="../index.html#portfolio" class="project-back"><i class="bx bx-left-arrow-alt"></i> All Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <p class="project-eyebrow">Projects · Computer Vision · Medical Imaging (Research)</p>
+        <h1>Brain MRI Segmentation</h1>
+        <p class="project-tagline">A fuzzy-clustering + GLCM texture + Naïve Bayes pipeline for brain tumor segmentation — published in a peer-reviewed journal, beating VGG16 and ResNet50 on speed without giving up accuracy.</p>
+        <div class="project-tags">
+          <span>MATLAB</span>           <span>Fuzzy Clustering</span>           <span>GLCM</span>           <span>Naive Bayes</span>
+        </div>
+        <div class="project-links">
+          <a href="https://drive.google.com/file/d/1sEVzjfC8QXPedDtXhEtJFzerBIo8bL_y/view?usp=sharing" target="_blank" class="project-btn"><i class="bx bx-file"></i> View Project Details</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-hero-image container">
+      <img src="../assets/img/project/brain-mri.png" alt="Brain MRI Segmentation cover" class="img-fluid">
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Problem</p>
+      <h2>Why this matters</h2>
+      <p>Manual tumor segmentation on brain MRI scans is slow and depends on the radiologist reading it. Most automated alternatives lean on deep learning, which needs large labeled datasets and heavy compute to avoid overfitting — hard requirements in a lot of real clinical settings. This project asked a different question: how far can a lighter, classical machine learning pipeline get, both in accuracy and in speed? The result was published as a peer-reviewed paper: “A Novel Supervised Learning Model for MRI Image Using Fuzzy Clustering and Naïve Bayes Algorithms” (Model Assisted Statistics and Applications, 2025).</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Method</p>
+      <h2>How it was built</h2>
+      <p>Built in MATLAB. Tumor regions are first segmented with <strong>fuzzy clustering</strong>, then <strong>GLCM (Gray-Level Co-occurrence Matrix)</strong> texture features are extracted from the segmented regions across 4 distances and 4 angles (64 features total), and a <strong>Naïve Bayes</strong> classifier makes the final call on the extracted features.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/brain-mri-model-structure.png" alt="The two-phase pipeline: Phase 1 segments the MRI with fuzzy clustering, Phase 2 extracts 64 GLCM features from the segmented regions and classifies with Naive Bayes." class="img-fluid">
+      <p class="project-chart-caption">The two-phase pipeline: Phase 1 segments the MRI with fuzzy clustering, Phase 2 extracts 64 GLCM features from the segmented regions and classifies with Naive Bayes.</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Data</p>
+      <h2>Dataset &amp; evaluation setup</h2>
+      <p>Two applications were run: a 30-image illustrative example (reaching 100% accuracy, F1 = 1 — useful as a sanity check, not a headline result on its own), and the main 800-image benchmark, split 624 training / 156 validation / 20 test, which is the basis for the results below.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/brain-mri-data-sample.jpeg" alt="Sample MRI slices from the benchmark, showing tumor regions (bright areas) the pipeline needs to segment." class="img-fluid">
+      <p class="project-chart-caption">Sample MRI slices from the benchmark, showing tumor regions (bright areas) the pipeline needs to segment.</p>
+    </div>
+
+    <section class="project-section project-section-results container">
+      <p class="project-label">Metrics</p>
+      <h2>Main benchmark (800 images), best configuration</h2>
+      <div class="project-stat-grid">
+        <div class="project-stat-card">
+          <p class="project-stat-value">95.45%</p>
+          <p class="project-stat-caption">Accuracy — fuzzy clustering + GLCM + Naïve Bayes</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">96.0</p>
+          <p class="project-stat-caption">F1-score, same configuration</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">182s</p>
+          <p class="project-stat-caption">Computation time — vs. 486s (VGG16) and 490s (ResNet50)</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/brain-mri-segmentation-output.png" alt="Fuzzy clustering segmentation output on 10 sample scans, each color marking a distinct tissue cluster that the GLCM + Naive Bayes step then classifies." class="img-fluid">
+      <p class="project-chart-caption">Fuzzy clustering segmentation output on 10 sample scans, each color marking a distinct tissue cluster that the GLCM + Naive Bayes step then classifies.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/brain-mri-glcm-features.png" alt="GLCM feature vectors (64 features per image, extracted across 4 distances x 4 angles) that feed the Naive Bayes classifier." class="img-fluid">
+      <p class="project-chart-caption">GLCM feature vectors (64 features per image, extracted across 4 distances x 4 angles) that feed the Naive Bayes classifier.</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Learnings</p>
+      <h2>How it compares to deep learning baselines</h2>
+      <p>On the same 800-image dataset, VGG16 reached 89.40% accuracy / 88.40 F1 in 486s, and ResNet50 reached 90.17% accuracy / 90.03 F1 in 490s — both lower accuracy than the proposed pipeline, and roughly 2.7× slower. The paper attributes part of the deep learning gap to overfitting on a dataset this size. The takeaway isn’t “classical ML always beats deep learning” — it’s that when the dataset is limited, a well-engineered classical pipeline with hand-crafted texture features can be both more accurate and dramatically cheaper to run than defaulting straight to a CNN.</p>
+    </section>
+
+    <div class="project-footer-nav container">
+      <a href="../index.html#portfolio" class="project-btn project-btn-ghost"><i class="bx bx-left-arrow-alt"></i> Back to all projects</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>ShelfSense — Shelf Stock Monitoring — Anh Thu Tran</title>
+  <meta content="Case study: a YOLOv8 + SigLIP2 pipeline that turns a phone photo of a store shelf into an automatic stock count." name="description">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
+</head>
+
+<body class="project-page">
+
+  <header class="project-topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="project-topbar-brand">Anh Thu Tran</a>
+      <div class="project-topbar-actions">
+        <a href="../index.html#portfolio" class="project-back"><i class="bx bx-left-arrow-alt"></i> All Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <p class="project-eyebrow">Projects &middot; Computer Vision &middot; Retail</p>
+        <h1>ShelfSense &mdash; Shelf Stock Monitoring</h1>
+        <p class="project-tagline">Turning a phone photo of a store shelf into an automatic stock count and empty-shelf alert &mdash; no new camera hardware needed.</p>
+        <div class="project-tags">
+          <span>Python</span>           <span>YOLOv8</span>           <span>SigLIP2</span>           <span>Computer Vision</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/tn-anhthu/shelf-stock-monitoring" target="_blank" class="project-btn"><i class="bx bxl-github"></i> View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-hero-image container">
+      <img src="../assets/img/project/shelfsense-thumbnail.png" alt="ShelfSense &mdash; Shelf Stock Monitoring cover" class="img-fluid">
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Problem</p>
+      <h2>Why this matters</h2>
+      <p>Shelf inventory in small convenience stores and minimarkets is still counted by hand. That's slow, inconsistent, and it means stock-outs get caught late &mdash; after a customer has already reached for an empty spot. The goal was to let staff photograph a shelf with a regular phone and get an automatic count, without buying dedicated camera infrastructure or an enterprise SaaS contract.</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Approach</p>
+      <h2>How it was built</h2>
+      <p>A four-stage pipeline: <strong>Detection</strong> &mdash; YOLOv8 nano, fine-tuned on the SKU-110K dataset, locates products on the shelf. <strong>Classification</strong> &mdash; SigLIP2 embeddings match each detected product against a catalog using zero-shot similarity, chosen after benchmarking showed it outperforms CLIP on retrieval. <strong>Gap detection</strong> &mdash; geometric heuristics flag empty shelf space. <strong>Human verification</strong> &mdash; staff confirm the AI's proposed counts and enter a depth multiplier, since the system is not fully automated.</p>       <p>Demo scope: roughly 100 SKUs.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/shelfsense-input.jpg" alt="Raw input: a phone photo of a shelf, no special camera or angle needed." class="img-fluid">
+      <p class="project-chart-caption">Raw input: a phone photo of a shelf, no special camera or angle needed.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/shelfsense-detection-output.jpg" alt="YOLOv8 detection output &mdash; green boxes are confidently matched SKUs, red boxes are flagged for review." class="img-fluid">
+      <p class="project-chart-caption">YOLOv8 detection output &mdash; green boxes are confidently matched SKUs, red boxes are flagged for review.</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/shelfsense-gap-dashboard.jpeg" alt="The staff-facing dashboard: stock levels, a low-stock flag, and the exact shelf photo location of the gap for human verification." class="img-fluid">
+      <p class="project-chart-caption">The staff-facing dashboard: stock levels, a low-stock flag, and the exact shelf photo location of the gap for human verification.</p>
+    </div>
+
+    <section class="project-section project-section-results container">
+      <p class="project-label">Results</p>
+      <h2>What the pipeline achieves</h2>
+      <div class="project-stat-grid">
+        <div class="project-stat-card">
+          <p class="project-stat-value">Recall 0.782</p>
+          <p class="project-stat-caption">Product detection recall at a 0.6 confidence threshold</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">Precision 0.745</p>
+          <p class="project-stat-caption">Product detection precision at the same threshold</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">Top-1 0.676 / Top-5 0.952</p>
+          <p class="project-stat-caption">Zero-shot product classification match accuracy</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Insight</p>
+      <h2>Why human-in-the-loop, on purpose</h2>
+      <p>Classification isn't perfect yet: similar-looking SKUs score a 0.926 embedding similarity to each other, versus 0.860 between genuinely different brands &mdash; close enough that an autonomous system would misfile stock some of the time. Rather than hide that, the design keeps a human in the loop to confirm before any reorder trigger fires. That's a smaller win than full automation, but it's one that's actually safe to ship: it still cuts the manual counting time down to a photo and a quick check, without the risk of an AI-driven false reorder.</p>
+    </section>
+
+    <div class="project-footer-nav container">
+      <a href="../index.html#portfolio" class="project-btn project-btn-ghost"><i class="bx bx-left-arrow-alt"></i> Back to all projects</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

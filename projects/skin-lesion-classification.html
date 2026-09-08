@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var stored;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch (e) {
+        stored = null;
+      }
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Skin Lesion Classification — Anh Thu Tran</title>
+  <meta content="Case study: comparing ResNet50 and InceptionResNetV2 for 7-class skin lesion classification on HAM10000. Research project, not a clinical tool." name="description">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
+</head>
+
+<body class="project-page">
+
+  <header class="project-topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="project-topbar-brand">Anh Thu Tran</a>
+      <div class="project-topbar-actions">
+        <a href="../index.html#portfolio" class="project-back"><i class="bx bx-left-arrow-alt"></i> All Projects</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="bx bx-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-detail">
+    <section class="project-hero">
+      <div class="container">
+        <p class="project-eyebrow">Projects &middot; Computer Vision &middot; Medical Imaging (Research)</p>
+        <h1>Skin Lesion Classification</h1>
+        <p class="project-tagline">Comparing two CNN architectures on a class-imbalanced dermoscopy dataset &mdash; a research project, not a clinical diagnostic tool.</p>
+        <div class="project-tags">
+          <span>Python</span>           <span>TensorFlow/Keras</span>           <span>ResNet50</span>           <span>InceptionResNetV2</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/tn-anhthu/skin-lesion-classification-ham10000" target="_blank" class="project-btn"><i class="bx bxl-github"></i> View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-hero-image container">
+      <img src="../assets/img/project/skin-lesion.jpeg" alt="Skin Lesion Classification cover" class="img-fluid">
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Problem</p>
+      <h2>Why this matters</h2>
+      <p>Skin lesion images span 7 diagnostic categories with very uneven representation in the real world &mdash; a handful of classes dominate, which is exactly the setting where a naive classifier learns to just predict the majority class. The goal here was narrower and more honest than "detect skin cancer": develop and compare deep learning models for 7-class skin lesion classification, and see how much the choice of architecture and fine-tuning strategy actually matters on an imbalanced medical imaging dataset. This is a research/learning project &mdash; it has not been clinically validated and isn't a diagnostic tool.</p>
+    </section>
+
+    <section class="project-section container">
+      <p class="project-label">Method</p>
+      <h2>How it was built</h2>
+      <p>Two backbone architectures were compared, each in two configurations: (A) fine-tuning the full network, and (B) training only the newly added classifier layers on top of a frozen pretrained backbone. Both used a customized fully-connected head for the 7-class output.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/skin-model-structure.png" alt="Classifier head on top of the pretrained backbone: Global Average Pooling into four Dense+Dropout+BatchNorm blocks, ending in a 7-class softmax." class="img-fluid">
+      <p class="project-chart-caption">Classifier head on top of the pretrained backbone: Global Average Pooling into four Dense+Dropout+BatchNorm blocks, ending in a 7-class softmax.</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Data</p>
+      <h2>Dataset</h2>
+      <p>HAM10000: 10,015 dermoscopic images across 7 lesion classes. To address class imbalance, the training set was augmented up to 14,000 images (2,000 per class), with images resized to 128&times;128 pixels.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/skin-data-sample.jpeg" alt="Sample dermoscopy images across all 7 lesion classes in HAM10000." class="img-fluid">
+      <p class="project-chart-caption">Sample dermoscopy images across all 7 lesion classes in HAM10000.</p>
+    </div>
+
+    <section class="project-section project-section-results container">
+      <p class="project-label">Metrics</p>
+      <h2>Best result: InceptionResNetV2, full fine-tune</h2>
+      <div class="project-stat-grid">
+        <div class="project-stat-card">
+          <p class="project-stat-value">92.07%</p>
+          <p class="project-stat-caption">Accuracy (InceptionResNetV2, config A &mdash; full fine-tune)</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">91.99</p>
+          <p class="project-stat-caption">F1-score (same configuration)</p>
+        </div>         <div class="project-stat-card">
+          <p class="project-stat-value">+17.8 pts</p>
+          <p class="project-stat-caption">Accuracy gained over the frozen-backbone variant of the same model (74.29%)</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/skin-training-curve.png" alt="InceptionResNetV2 training/validation accuracy and loss over 70 epochs, config A (full fine-tune)." class="img-fluid">
+      <p class="project-chart-caption">InceptionResNetV2 training/validation accuracy and loss over 70 epochs, config A (full fine-tune).</p>
+    </div>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/skin-confusion-matrix.png" alt="InceptionResNetV2 confusion matrix on the test set (config A, full fine-tune)." class="img-fluid">
+      <p class="project-chart-caption">InceptionResNetV2 confusion matrix on the test set (config A, full fine-tune).</p>
+    </div>
+
+    <section class="project-section container">
+      <p class="project-label">Learnings</p>
+      <h2>What the comparison showed</h2>
+      <p>Full fine-tuning clearly beat training only the classifier head, for both architectures: 92.07% vs. 74.29% accuracy for InceptionResNetV2, and an even wider 91.14% vs. 37.07% for ResNet50. The frozen pretrained features weren't specialized enough for dermoscopy images on their own &mdash; unlocking the whole network to adapt was necessary, even though that costs more compute and carries more overfitting risk on a dataset this size.</p>
+    </section>
+
+    <div class="project-chart container">
+      <img src="../assets/img/project/skin-baseline-comparison.png" alt="Accuracy against literature baselines on the same task &mdash; both proposed configurations (92.07% / 91.14%) beat MobileNet, ResNet50, MobileNetV2-LSTM, and the Modified InceptionResNetV2 baseline." class="img-fluid">
+      <p class="project-chart-caption">Accuracy against literature baselines on the same task &mdash; both proposed configurations (92.07% / 91.14%) beat MobileNet, ResNet50, MobileNetV2-LSTM, and the Modified InceptionResNetV2 baseline.</p>
+    </div>
+
+    <div class="project-footer-nav container">
+      <a href="../index.html#portfolio" class="project-btn project-btn-ghost"><i class="bx bx-left-arrow-alt"></i> Back to all projects</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>
