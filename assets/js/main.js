@@ -60,6 +60,11 @@
         $("section").removeClass('section-show');
         $(initial_nav).addClass('section-show');
       }, 350);
+      // Strip the hash from the URL once the section is shown, so a later
+      // page refresh lands on Home instead of re-jumping to this section.
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
     }
   }
 
