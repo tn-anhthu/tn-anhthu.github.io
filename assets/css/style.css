@@ -1323,11 +1323,13 @@ section .container {
 .education-detail {
   border-top: 1px solid var(--line);
   padding-top: 14px;
+  font-size: 14px;
 }
 
 .education-detail h6 {
   color: var(--ink);
   font-weight: 600;
+  font-size: 15px;
   margin-bottom: 8px;
 }
 
