@@ -28,6 +28,28 @@ body:has(.project-detail) {
   gap: 20px;
 }
 
+.project-topbar-actions .theme-toggle {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent);
+  color: var(--on-accent);
+  line-height: 1;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.3s;
+}
+
+.project-topbar-actions .theme-toggle:hover {
+  background: var(--accent-strong);
+}
+
 .project-back {
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;

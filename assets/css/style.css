@@ -1299,42 +1299,55 @@ section .container {
 .education-card-body {
   padding: 14px 18px 18px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .education-eyebrow {
-  color: var(--accent);
-  font-weight: bold;
-  font-size: 16px;
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 19px;
   margin: 0 0 4px;
 }
 
 .education-date {
-  margin: 0 0 12px;
-  font-size: 15px;
-  color: var(--ink);
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
 }
 
 .education-toggle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 8px;
+  border: none;
+  border-top: 1px solid var(--line);
   background: none;
-  border: 1px solid var(--accent);
   color: var(--accent);
-  border-radius: 20px;
-  padding: 4px 14px;
-  font-size: 13px;
   cursor: pointer;
-  transition: background .2s ease, color .2s ease;
+  transition: color .2s ease;
 }
 
 .education-toggle:hover {
-  background: var(--accent);
-  color: var(--on-accent, #fff);
+  color: var(--accent-strong);
+}
+
+.education-toggle:focus {
+  outline: none;
+}
+
+.education-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .education-toggle i {
-  font-size: 17px;
+  font-size: 20px;
   transition: transform .2s ease;
 }
 
