@@ -1293,7 +1293,9 @@ section .container {
 .education-card img {
   display: block;
   width: 100%;
+  height: 220px;
   object-fit: cover;
+  background: #fff;
 }
 
 .education-card-body {
@@ -1305,7 +1307,7 @@ section .container {
 
 .education-eyebrow {
   font-family: "Fraunces", Georgia, serif;
-  color: var(--ink);
+  color: var(--accent);
   font-weight: 700;
   font-size: 19px;
   margin: 0 0 4px;
@@ -1313,28 +1315,41 @@ section .container {
 
 .education-date {
   margin: 0 0 14px;
-  font-size: 14px;
-  font-style: italic;
+  font-size: 13px;
+  font-weight: 400;
   color: var(--ink-soft);
 }
 
 .education-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 15px;
   border: none;
   border-top: 1px solid var(--line);
   background: none;
   color: var(--accent);
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
   transition: color .2s ease;
 }
 
 .education-toggle:hover {
   color: var(--accent-strong);
+}
+
+.education-toggle::after {
+  content: "+";
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.education-toggle[aria-expanded="true"]::after {
+  content: "\2212";
 }
 
 .education-toggle:focus {
@@ -1344,15 +1359,6 @@ section .container {
 .education-toggle:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -2px;
-}
-
-.education-toggle i {
-  font-size: 20px;
-  transition: transform .2s ease;
-}
-
-.education-toggle[aria-expanded="true"] i {
-  transform: rotate(180deg);
 }
 
 .education-detail {
