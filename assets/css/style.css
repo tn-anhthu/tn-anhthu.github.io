@@ -1278,3 +1278,95 @@ section .container {
   color: var(--accent);
   text-decoration: underline;
 }
+
+/* ===== Education cards (side-by-side, collapsible detail) ===== */
+.education-card {
+  background: var(--paper);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.education-card img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.education-card-body {
+  padding: 14px 18px 18px;
+  flex: 1;
+}
+
+.education-eyebrow {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+
+.education-date {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.education-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+
+.education-toggle:hover {
+  background: var(--accent);
+  color: var(--on-accent, #fff);
+}
+
+.education-toggle i {
+  font-size: 17px;
+  transition: transform .2s ease;
+}
+
+.education-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+.education-detail {
+  padding-top: 14px;
+}
+
+.education-detail h6 {
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.education-detail ul {
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  padding-left: 18px;
+}
+
+.education-detail li {
+  padding-bottom: 2px;
+}
+
+.education-detail p {
+  margin: 0;
+}
+
+.education-detail a {
+  color: var(--accent);
+  font-size: 13px;
+}
